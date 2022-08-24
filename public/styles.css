@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+
+body {
+    background: #bab473;
+    background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+header {
+    background-color: #5e3a59;
+    margin: auto -16px;
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #bab473;
+  }
+
+/* footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+  
+footer p {
+    color: #ccc;
+  } */
+
+footer {
+    color: #716F81;
+    font-family: 'Calibri';
+    background-color:transparent;
+    text-align: center;
+}
+
+.calendar {
+    text-align: center;
+    padding-top:30px;
+}
+
+.todoform {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.each-item {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 240px;
+    margin: 16px;
+    float: left;
+  
+}
+
+.each-item button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color:purple;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+  }
+
+
+ 
