@@ -2,27 +2,30 @@ import React, { useState } from 'react';
 
 function CreateTodo(props){
 
-    const date = useState(new Date().toDateString())
-
     const [todo, setTodo] = useState({
-        name: '',
+        
         content: ""
     });
 
+    // console.log("todo is" + " " + todo.content)
+
     function handleChange(event){
         const {name, value } = event.target;
+        // const newItem = event.target.value
          
         setTodo(prevTodo => {
             return {
                 ...prevTodo,
-                [name]: value
+                [name]:value
             };
         });
+
+        // setTodo(newItem);
     }
 
     function submitTodo(event){
-        props.onAdd(todo);
-        setTodo("");
+        props.onAdd(todo.content);
+        setTodo({content: ""});
         event.preventDefault();
     }
 
@@ -30,7 +33,6 @@ function CreateTodo(props){
         <div className="todoform">
             <form>
             <div class="form-group">
-            <label for="date">{date}</label>
             <textarea 
             onChange={handleChange} 
             name = "content"
@@ -39,6 +41,7 @@ function CreateTodo(props){
             rows="3" 
             placeholder="What's your agenda?"
             value = {todo.content}
+            date = {props.date}
              />
             </div>
             <button onClick={submitTodo} type="button" class="btn btn-secondary">Add</button>
