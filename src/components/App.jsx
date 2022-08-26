@@ -5,21 +5,29 @@ import Header from "./Header";
 import CreateTodo from "./CreateTodo";
 import EachItem from "./EachItem";
 
+
 function App(){
 
     const [date, setDate] = useState(new Date());
+    date.setHours(0,0,0,0);
+      
     const [todos, setTodos] = useState([]);
-       
-    const onChange = date => {setDate(date);}
     
-    // console.log(todos);
+    const onChange = date => {setDate(date)};   
+    
+    
 
     function addTodo(content) {
         setTodos(previousTodos => {
-        return [...previousTodos, [date, content]];
+        return [...previousTodos, {date, content}];
         
         });
     }
+
+    // function filterTodos(date) {
+    //     setTodos(todos => todos.filter(todo => todo.date === date
+    //         )
+    //     )}
 
     function deleteTodo(id){
         setTodos(prevTodos => {
@@ -27,19 +35,6 @@ function App(){
                 return index !== id;
             });
         });
-
-  
-    
-
-    // function filterDate(date) {
-    //     setTodos(prevValues => {
-    //         return prevValues.filter((todo) => {
-    //             return todo.date ==={date};
-    //         });
-    //     });
-    // }
-
-   
     }
 
     return (
@@ -47,7 +42,11 @@ function App(){
       <Header />  
         <div className="app">
         <div className="calendar-container">
-            <Calendar onChange={onChange} value={date}/>
+            <Calendar 
+            onChange={onChange} 
+            value={date}
+            
+            />
             {/* {console.log(date)} */}
         </div>
         <div className="text-center">
@@ -57,84 +56,52 @@ function App(){
             onAdd={addTodo}
             date={date}
             />
-         
-            {/* {todos.map((todoItem, index) => {
-                {console.log("todoItem.content is" + " " + todoItem.content)}
-                
+        
+
+            
+          <div>
+          <h1>Whole items: </h1>
+
+            {todos.map((todoItem, index) => {
                 return (
                     <EachItem 
-                    
                         key={index}
                         id={index}
                         content={todoItem.content}
                         onDelete={deleteTodo}
                         date={todoItem.date}
+                        
                     />
                 );
-            })} */}
-            <div>
+            })}
+            </div>
 
 
-           {/* {todos.map((todoItem, index) => {    
-            console.log("todoItem.content is " + todoItem.content);
-                console.log("todoItem.date is " + todoItem.date);
-                console.log("date is " + date ); 
-                console.log("todos is " + todos );   
-                console.log("index is " + index );             
-                return todoItem
-                  
-                ;
-            }).filter((todoItem, index) => todoItem.date === {date} &&  
-                <EachItem 
-                        key={index}
-                        id={index}
-                        content={todoItem.content}
-                        onDelete={deleteTodo}
-                        
-                    />)
-            }  */}
-
-            {todos.filter((todo, index) => {
+            {/* <div>
+            <h1>Date specific items: </h1>
+            {todos.filter(todo => todo.date === date)
+                  .map((todo, index) => {
+                console.log("todo is " + todo);
+                console.log("todos is " + todos);
                 console.log("todoItem.content is " + todo.content);
                 console.log("todoItem.date is " + todo.date);
-                console.log("date is " + date ); 
-                console.log("todos is " + todos );   
-                console.log("index is " + index );  
-                if (todo.includes({date})) {
-               
-                   return( <EachItem 
+                console.log("date is " + date );
+                return ( 
+                    <EachItem 
                         key={index}
                         id={index}
                         content={todo.content}
-                        onDelete={deleteTodo}  
-                    />);
-                } else {
-                    console.log("failure");
-                }
-            })}
-
-
-            {/* {todos.filter(todoItem => todoItem.date === {date}).map((todoItem, index) => {    
-                console.log("todoItem.content is " + todoItem.content);
-                console.log("todoItem.date is " + todoItem.date);
-                console.log("date is " + date );
-                return (
-                    
-                    <EachItem 
-                        key={index}
-                        id={index}
-                        content={todoItem.content}
                         onDelete={deleteTodo}
-                        date={todoItem.date}
+                        date={todo.date}
                     />
                 );
-            })}  */}
+            })}
 
+            {console.log(todos)}
+            {console.log("date is " + date )}
+            
 
-
-
-          
-            </div>
+            </div> */}
             </div>
             </div>
     

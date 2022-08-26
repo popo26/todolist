@@ -6,9 +6,10 @@ function EachItem(props){
         props.onDelete(props.id);
     }
 
+   
+   
     return (
-        <div className="each-item">
-        
+        <div className="each-item">  
             <p>{props.content}</p>
             <button onClick={handleClick}>Delete</button>
         </div>

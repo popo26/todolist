@@ -7,11 +7,9 @@ function CreateTodo(props){
         content: ""
     });
 
-    // console.log("todo is" + " " + todo.content)
-
+    
     function handleChange(event){
         const {name, value } = event.target;
-        // const newItem = event.target.value
          
         setTodo(prevTodo => {
             return {
@@ -20,7 +18,6 @@ function CreateTodo(props){
             };
         });
 
-        // setTodo(newItem);
     }
 
     function submitTodo(event){
@@ -28,6 +25,8 @@ function CreateTodo(props){
         setTodo({content: ""});
         event.preventDefault();
     }
+
+  
 
     return (
         <div className="todoform">
@@ -42,6 +41,7 @@ function CreateTodo(props){
             placeholder="What's your agenda?"
             value = {todo.content}
             date = {props.date}
+            
              />
             </div>
             <button onClick={submitTodo} type="button" class="btn btn-secondary">Add</button>
