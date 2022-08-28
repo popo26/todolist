@@ -9,6 +9,7 @@ function EachItem(props){
    
    
     return (
+
         <div className="each-item">  
             <p>{props.content}</p>
             <button onClick={handleClick}>Delete</button>

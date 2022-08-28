@@ -24,10 +24,23 @@ function App(){
         });
     }
 
-    // function filterTodos(date) {
-    //     setTodos(todos => todos.filter(todo => todo.date === date
-    //         )
-    //     )}
+    // function filterTodos() {
+    //     setTodos(todos.filter(todo => todo.date === date
+    //         ).map((todo, index)=>{
+    //             return (
+    //                 <EachItem 
+    //                     key={index}
+    //                     id={index}
+    //                     content={todo.content}
+    //                     onDelete={deleteTodo}
+    //                     date={todo.date}
+    //                 />
+    //             );
+    //         }
+    //     ))}
+
+
+    
 
     function deleteTodo(id){
         setTodos(prevTodos => {
@@ -44,10 +57,11 @@ function App(){
         <div className="calendar-container">
             <Calendar 
             onChange={onChange} 
-            value={date}
-            
+            value={date}  
+            // filter={filterTodos}
+
             />
-            {/* {console.log(date)} */}
+           
         </div>
         <div className="text-center">
             {date.toDateString()}
