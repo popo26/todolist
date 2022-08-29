@@ -73,7 +73,7 @@ function App(){
         
 
             
-          <div>
+          {/* <div>
           <h1>Whole items: </h1>
 
             {todos.map((todoItem, index) => {
@@ -88,10 +88,10 @@ function App(){
                     />
                 );
             })}
-            </div>
+            </div> */}
 
 
-            {/* <div>
+            <div>
             <h1>Date specific items: </h1>
             {todos.filter(todo => todo.date === date)
                   .map((todo, index) => {
@@ -115,7 +115,7 @@ function App(){
             {console.log("date is " + date )}
             
 
-            </div> */}
+            </div>
             </div>
             </div>
     
